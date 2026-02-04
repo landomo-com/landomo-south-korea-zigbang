@@ -9,6 +9,7 @@
     "dev": "tsx watch src/scraper.ts",
     "test": "jest",
     "test:watch": "jest --watch",
+    "test:scraper": "tsx src/test-scraper.ts",
     "build": "tsc",
     "lint": "eslint src/**/*.ts",
     "type-check": "tsc --noEmit"
