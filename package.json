@@ -2,7 +2,7 @@
   "name": "@landomo/scraper-south-korea-zigbang",
   "version": "1.0.0",
   "private": true,
-  "description": "Landomo scraper for zigbang_NAME in south-korea_NAME",
+  "description": "Landomo scraper for Zigbang in South Korea",
   "main": "src/scraper.ts",
   "scripts": {
     "start": "tsx src/scraper.ts",
@@ -14,9 +14,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@landomo/core": "^1.0.0",
     "axios": "^1.6.0",
-    "cheerio": "^1.0.0",
     "dotenv": "^16.0.0"
   },
   "devDependencies": {

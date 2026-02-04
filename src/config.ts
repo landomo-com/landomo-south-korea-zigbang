@@ -8,13 +8,22 @@ export const config = {
   apiKey: process.env.LANDOMO_API_KEY || '',
 
   // Scraper Identity
-  portal: process.env.zigbang_NAME || 'zigbang',
-  country: process.env.south-korea || 'south-korea',
+  portal: 'zigbang',
+  country: 'south-korea',
+
+  // Zigbang API
+  zigbangApiUrl: 'https://apis.zigbang.com',
+  zigbangWebUrl: 'https://www.zigbang.com',
 
   // Scraper Behavior
   debug: process.env.DEBUG === 'true',
-  requestDelayMs: parseInt(process.env.REQUEST_DELAY_MS || '1000'),
+  requestDelayMs: parseInt(process.env.REQUEST_DELAY_MS || '300'),
   maxConcurrentRequests: parseInt(process.env.MAX_CONCURRENT_REQUESTS || '5'),
+  batchSize: parseInt(process.env.BATCH_SIZE || '100'),
+
+  // Search defaults
+  defaultCity: process.env.DEFAULT_CITY || 'Seoul',
+  maxResults: parseInt(process.env.MAX_RESULTS || '1000'),
 
   // Optional: Scraper Database (Tier 1)
   scraperDb: {
@@ -34,7 +43,7 @@ export const config = {
 };
 
 // Validate required config
-if (!config.apiKey) {
-  console.error('ERROR: LANDOMO_API_KEY is required');
+if (!config.apiKey && process.env.NODE_ENV === 'production') {
+  console.error('ERROR: LANDOMO_API_KEY is required in production');
   process.exit(1);
 }
